@@ -35,7 +35,6 @@ function Iterator(props) {
                 </ul>} 
             </div>
 
-
          
             {/* <div>
                 {Object.entries(data1).map(([item, value]) => (

@@ -17,14 +17,14 @@ const MyForm = (props) => {
     // Validate name and email
     let isValid = true;
 
-    if (name.trim() === '') {
+    if (name?.trim() === '') {
       setNameError('Name is required');
       isValid = false;
     } else {
       setNameError('');
     }
 
-    if (email.trim() === '') {
+    if (email?.trim() === '') {
       setEmailError('Email is required');
       isValid = false;
     } else if (!isValidEmail(email)) {

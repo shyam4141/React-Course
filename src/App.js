@@ -15,9 +15,14 @@ import PageNotFound from './pageNotFound';
 import Details from './details';
 import Sample from './sample';
 import { Provider } from 'react-redux';
+import { AuthProvider } from './contexts/AuthContext';
 
 import { Store } from 'redux';
 import store from './store'
+import Role from './Role';
+import AdminPage from './AdminPage';
+import GuestPage from './GuestPage';
+import Sidebar from './Sidebar';
 
 function App() {
  
@@ -26,21 +31,33 @@ function App() {
   return (
 
     <div className="App">
+      <AuthProvider>
       <Router>
         <div>
           <Header/>
-          <Routes>
-                <Route path="/" element={<Test />} />
+          <div className='row'>
+            <div className='col-2'>
+            <Sidebar />
+            </div>
+            <div className='col-10'>
+            <Routes>
+                <Route path="/" element={<Base />} />
                 <Route path="/details" element={<Details />} />
                 <Route path="/main" element={<Main />} />
                 <Route path="/sample" element={<Sample />} />
                 <Route path="/items" element={<Items />} />
-                <Route path="form/:id" element={<Form />} />
+                <Route path="form" element={<Form />} />
+                <Route path="/admin" element={<AdminPage />} />
+                <Route path="/guest" element={<GuestPage />} />
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
+            </div>
+           
+          </div>
+          
         </div>
       </Router>
-
+      </AuthProvider>
     </div>
   );
 }
